@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-lonnet-dev-110932-authRole",
+            "UnauthRoleArn": "arn:aws:iam::220418820714:role/amplify-lonnet-dev-110932-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::220418820714:role/amplify-lonnet-dev-110932-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-lonnet-dev-110932-deployment",
+            "UnauthRoleName": "amplify-lonnet-dev-110932-unauthRole",
+            "StackName": "amplify-lonnet-dev-110932",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:220418820714:stack/amplify-lonnet-dev-110932/8faac720-969c-11ea-a91c-0a0bafe12bca",
+            "AmplifyAppId": "d2wh96qm9xcno8"
+        },
+        "categories": {
+            "auth": {
+                "lonnet7fc2535e": {}
+            }
+        }
+    }
+}

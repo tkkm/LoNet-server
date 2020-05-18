@@ -1,0 +1,34 @@
+type Shop @model {
+  id: ID!
+  name: String!
+  description: String
+  address: String!
+  itemas: [Item] @connection(KeyName: "ByShop", fileds: ["id"])
+}
+
+type Category @model {
+  @Key(name: "PartentID", fileds: ["PartentID"])
+  id: ID!
+  name: String!
+  partent: Category @connection
+  is_minumun: Boolean
+  itemas: [Item] @connection(KeyName: "ByCategory", fileds: ["id"])
+}
+
+enum ItemStatus {
+  Available  # 在庫あり
+  RunningOut  # 無くなりそう
+  OutOfstock  # 在庫切れ
+  BackOrder  # 入荷待ち
+}
+
+type Item @model
+  @Key(name: "ByShop", fileds: ["shopID"])
+  @Key(name: "ByCategory", fileds: ["categoryID"]) {
+  id: ID!
+  shopID: ID!
+  categoryID: ID!
+  name: String!
+  price: Int
+  status: ItemStatus
+}
