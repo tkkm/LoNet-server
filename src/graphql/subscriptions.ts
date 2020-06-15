@@ -7,16 +7,40 @@ export const onCreateShop = /* GraphQL */ `
     onCreateShop {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -28,16 +52,40 @@ export const onUpdateShop = /* GraphQL */ `
     onUpdateShop {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -49,16 +97,40 @@ export const onDeleteShop = /* GraphQL */ `
     onDeleteShop {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -76,22 +148,25 @@ export const onCreateCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -109,22 +184,25 @@ export const onUpdateCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -142,22 +220,25 @@ export const onDeleteCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -168,11 +249,26 @@ export const onCreateItem = /* GraphQL */ `
   subscription OnCreateItem {
     onCreateItem {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;
@@ -180,11 +276,26 @@ export const onUpdateItem = /* GraphQL */ `
   subscription OnUpdateItem {
     onUpdateItem {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;
@@ -192,11 +303,26 @@ export const onDeleteItem = /* GraphQL */ `
   subscription OnDeleteItem {
     onDeleteItem {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;

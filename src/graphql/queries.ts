@@ -7,16 +7,40 @@ export const getShop = /* GraphQL */ `
     getShop(id: $id) {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -33,8 +57,29 @@ export const listShops = /* GraphQL */ `
       items {
         id
         name
-        description
         address
+        phone
+        payment
+        openHours {
+          weekdayNumber
+          open
+          close
+        }
+        openHourRemarks
+        sector
+        mainImage {
+          bucket
+          key
+          region
+          fileName
+        }
+        subImages {
+          bucket
+          key
+          region
+          fileName
+        }
+        description
         itemas {
           nextToken
         }
@@ -54,22 +99,25 @@ export const getCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -89,9 +137,9 @@ export const listCategorys = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
@@ -104,11 +152,26 @@ export const getItem = /* GraphQL */ `
   query GetItem($id: ID!) {
     getItem(id: $id) {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;
@@ -121,11 +184,26 @@ export const listItems = /* GraphQL */ `
     listItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        shopID
-        categoryID
         name
+        mainImage {
+          bucket
+          key
+          region
+          fileName
+        }
+        subImages {
+          bucket
+          key
+          region
+          fileName
+        }
         price
+        description
+        categoryID
         status
+        shopID
+        salePrice
+        saleDescription
       }
       nextToken
     }

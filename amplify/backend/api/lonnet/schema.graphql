@@ -1,8 +1,36 @@
+type S3Object {
+  bucket: String!
+  key: String!
+  region: String!
+  fileName: String
+}
+
+enum PaymentType {
+  cash
+  creditCard
+  paypay
+  suica
+}
+
+type OpenHour {
+  weekdayNumber: Int!
+  open: AWSTime!
+  close: AWSTime!
+}
+
 type Shop @model {
   id: ID!
   name: String!
-  description: String
   address: String!
+  phone: String!
+  payment: [PaymentType!]!
+  openHours: [OpenHour!]!
+  openHourRemarks: String
+  sector: String
+  mainImage: S3Object!
+  subImages: [S3Object!]
+  description: String
+
   itemas: [Item] @connection(keyName: "ByShop", fields: ["id"])
 }
 
@@ -10,7 +38,7 @@ type Category @model {
   id: ID!
   name: String!
   partent: Category @connection
-  is_minumun: Boolean
+  isMinumun: Boolean
   itemas: [Item] @connection(keyName: "ByCategory", fields: ["id"])
 }
 
@@ -25,9 +53,14 @@ type Item @model
   @key(fields: ["shopID"], name: "ByShop")
   @key(fields: ["categoryID"], name: "ByCategory") {
   id: ID!
-  shopID: ID!
-  categoryID: ID!
   name: String!
+  mainImage: S3Object!
+  subImages: [S3Object!]
   price: Int
+  description: String
+  categoryID: ID!
   status: ItemStatus
+  shopID: ID!
+  salePrice: Int
+  saleDescription: String
 }

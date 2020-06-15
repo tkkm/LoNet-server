@@ -1,13 +1,22 @@
 {
     "name": "LoNet Owner App",
-    "dockerFile": "Dockerfile",
-    "service": "cdk",
+    // "dockerFile": "Dockerfile",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "amplify",
     "extensions": [
         "dbaeumer.vscode-eslint",
         "amazonwebservices.aws-toolkit-vscode",
     ],
-    "runArgs": ["--env-file", "./envs.env"],
-    "mounts": [
-        "source=LoNet__node_modules,target=/workspace/node_modules,type=volume"
-    ]
+    "workspaceFolder": "/workspaces",
+    // "runArgs": [
+    //     "--env-file",
+    //     "./envs.env",
+    //     "-v",
+    //     "$(pwd)/credentials:/root/.aws/credentials"
+    // ],
+    // "mounts": [
+    //     "source=LoNet__node_modules,target=/workspace/node_modules,type=volume"
+    // ]
 }

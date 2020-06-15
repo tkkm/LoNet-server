@@ -10,16 +10,40 @@ export const createShop = /* GraphQL */ `
     createShop(input: $input, condition: $condition) {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -34,16 +58,40 @@ export const updateShop = /* GraphQL */ `
     updateShop(input: $input, condition: $condition) {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -58,16 +106,40 @@ export const deleteShop = /* GraphQL */ `
     deleteShop(input: $input, condition: $condition) {
       id
       name
-      description
       address
+      phone
+      payment
+      openHours {
+        weekdayNumber
+        open
+        close
+      }
+      openHourRemarks
+      sector
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
+      description
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -88,22 +160,25 @@ export const createCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -124,22 +199,25 @@ export const updateCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -160,22 +238,25 @@ export const deleteCategory = /* GraphQL */ `
         partent {
           id
           name
-          is_minumun
+          isMinumun
         }
-        is_minumun
+        isMinumun
         itemas {
           nextToken
         }
       }
-      is_minumun
+      isMinumun
       itemas {
         items {
           id
-          shopID
-          categoryID
           name
           price
+          description
+          categoryID
           status
+          shopID
+          salePrice
+          saleDescription
         }
         nextToken
       }
@@ -189,11 +270,26 @@ export const createItem = /* GraphQL */ `
   ) {
     createItem(input: $input, condition: $condition) {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;
@@ -204,11 +300,26 @@ export const updateItem = /* GraphQL */ `
   ) {
     updateItem(input: $input, condition: $condition) {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;
@@ -219,11 +330,26 @@ export const deleteItem = /* GraphQL */ `
   ) {
     deleteItem(input: $input, condition: $condition) {
       id
-      shopID
-      categoryID
       name
+      mainImage {
+        bucket
+        key
+        region
+        fileName
+      }
+      subImages {
+        bucket
+        key
+        region
+        fileName
+      }
       price
+      description
+      categoryID
       status
+      shopID
+      salePrice
+      saleDescription
     }
   }
 `;

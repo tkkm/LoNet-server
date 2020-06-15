@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  amplify:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/
+      - ../.aws:/root/.aws/
+      - lonet_node_modules:/workspaces/node_modules
+    # ports:
+    #   - "3000"
+    #   - "8000"
+    env_file: ../envs.env
+    command: sleep infinity
+
+volumes:
+  lonet_node_modules:
